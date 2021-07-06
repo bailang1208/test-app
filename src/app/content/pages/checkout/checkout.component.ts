@@ -103,6 +103,10 @@ export class CheckoutComponent implements OnInit {
           }
         }
       }
+      else {
+        this.productList.splice(1, 1);
+        this.cartList.splice(2, 2);
+      }
     });
 
     this.calculatePrice();
