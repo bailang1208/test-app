@@ -78,8 +78,8 @@ const initCartList = [
 export class CheckoutComponent implements OnInit {
 
   business: any = initBusiness;
-  productList: Array<any> = initProductList;
-  cartList: Array<any> = initCartList;
+  productList: Array<any> = initProductList.slice();
+  cartList: Array<any> = initCartList.slice();
 
   havePromoCode: boolean = false;
 
@@ -97,15 +97,14 @@ export class CheckoutComponent implements OnInit {
         this.havePromoCode = params.havePromoCode == "true";
         if(this.havePromoCode == true) {
           if(this.productList.length < 5) {
+            this.productList = initProductList.slice();
+            this.cartList = initCartList.slice();
+            
             this.updateProductList();
 
             this.calculatePrice();
           }
         }
-      }
-      else {
-        this.productList.splice(1, 1);
-        this.cartList.splice(2, 2);
       }
     });
 
