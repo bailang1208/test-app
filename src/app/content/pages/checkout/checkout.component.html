@@ -1,0 +1,88 @@
+<div class="top-bar">
+  <img src="assets/img/left-arrow.svg" />
+  <div class="mg-l-10">
+    CU - Alumni Weekend
+  </div>
+</div>
+
+<div class="content">
+  <div class="left-card">
+    <div class="card product-container">
+      <div *ngFor="let product of productList; let i = index">
+        <div class="product-item">
+          <img *ngIf="product.img" src="{{product.img}}" />
+          <div class="{{product.img == null ? '' : 'mg-l-16'}}">
+            <p class="product-item--title">{{product.title}}</p>
+            <p class="product-item--description">
+              {{product.description}}
+            </p>
+            <p *ngIf="!product.isDonate"
+              class="{{product.expiration_active ? 'product-item--expiration color-active' : 'product-item--expiration'}}">
+              Sales end in {{product.expiration}} hour
+            </p>
+            <p *ngIf="product.isDonate" class="font-size-12 bold mg-t-20">I want to donate</p>
+            <div *ngIf="product.isDonate" class="donate-container mg-t-16">
+              <div class="donate-item">$50</div>
+              <div class="donate-item mg-l-10">$100</div>
+              <div class="donate-item donate-item--active mg-l-10">$200</div>
+              <div class="donate-item mg-l-10">$500</div>
+              <div class="donate-item mg-l-10">
+                <label>$</label>
+                <input placeholder="Enter amount"/>
+              </div>
+            </div>
+            <div *ngIf="!product.isDonate" class="product-item__count-container">
+              <div>{{product.price == 0 ? 'Free' : '$' + product.price.toFixed(2)}}</div>
+              <div class="product-item__count">
+                <span>{{product.quantity}}</span>
+                <div class="arrow-down"></div>
+              </div>
+            </div>
+            <div *ngIf="havePromoCode && product.promo_message" class="product-item__promo">
+              <span>{{product.promo_message}}</span>
+              <a class="product-item__promo__action mg-l-10">{{product.promo_action}}</a>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="i < productList.length - 1" class="line"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="right-card">
+    <div class="card order-summary">
+      <p class="order-summary--title">Order summar</p>
+      <div *ngFor="let item of cartList;" class="order-summary__item order-summary__item--product">
+        <span>{{item.quantity}}x Free Ticket</span>
+        <span>${{item.price}}</span>
+      </div>
+      <div class="line mg-t-20"></div>
+      <div class="order-summary__subtotal mg-t-16">
+        Subtotal
+      </div>
+      <div class="order-summary__item order-summary__item--subtotal">
+        <span>Subtotal</span>
+        <span>$7,200.0</span>
+      </div>
+      <div class="order-summary__item order-summary__item--subtotal">
+        <span>Taxes</span>
+        <span>${{business.taxes}}</span>
+      </div>
+      <div class="line mg-t-16"></div>
+      <div class="order-summary__item bold">
+        <span>Total</span>
+        <span>$7289.42</span>
+      </div>
+      <div class="order-summary__promo-code--title" (click)="onClickHavePromoCode()">
+        Have a promo code?
+      </div>
+      <div *ngIf="havePromoCode" class="order-summary__promo-code">
+        <input class="order-summary__promo-code__input" />
+        <div class="order-summary__promo-code__button">Apply</div>
+      </div>
+    </div>
+    <div class="order-summary__button" (click)="onClickCheckOut()">
+      Checkout
+    </div>
+  </div>
+</div>

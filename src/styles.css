@@ -1,1 +1,493 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: SalesforceSans;
+  src        : url('assets/fonts/SalesforceSans-Regular.ttf') format('truetype');
+}
+
+html {
+  background : #e5e5e5;
+  font-family: 'SalesforceSans';
+  font-size  : 16px;
+}
+
+.font-size-12 {
+  font-size: 12px;
+}
+
+.font-size-15 {
+  font-size: 15px;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.w100p {
+  width: 100%;
+}
+
+.mg-t-16 {
+  margin-top: 16px;
+}
+
+.mg-t-20 {
+  margin-top: 20px;
+}
+
+.mg-l-10 {
+  margin-left: 10px;
+}
+
+.mg-l-16 {
+  margin-left: 16px;
+}
+
+.mg-l-20 {
+  margin-left: 20px;
+}
+
+input:focus {
+  outline: none;
+}
+
+p {
+  margin: 0;
+}
+
+.card {
+  background       : #ffffff;
+  /* box-shadow    : 0px 2px 3px rgba(0, 0, 0, 0.16); */
+  box-shadow       : 0px 2px 6px rgba(0, 0, 0, 0.16);
+  border-radius    : 4px;
+}
+
+.card__top-arrow {
+  width     : 100%;
+  text-align: right;
+}
+
+.card__top-arrow>img {
+  cursor: pointer;
+}
+
+.card__input {
+  height       : 42px;
+  background   : #FFFFFF;
+  border       : 1px solid #C4C4C4;
+  box-sizing   : border-box;
+  border-radius: 4px;
+}
+
+.card__input--warning {
+  border: 1px solid #EB7092
+}
+
+.card__input--height-small {
+  height: 32px;
+}
+
+.card__select {
+  margin-top   : 10px;
+  padding-left : 6px;
+  padding-right: 10px;
+}
+
+/* select:required:invalid {
+  color: lightgray;
+}
+
+option[value=""][disabled] {
+  display: none;
+} */
+
+.top-bar {
+  display    : flex;
+  margin-left: 100px;
+  padding-top: 16px;
+}
+
+.content {
+  display      : flex;
+  flex         : auto;
+  margin-top   : 60px;
+  margin-left  : 100px;
+  margin-right : 100px;
+  margin-bottom: 100px;
+}
+
+.line {
+  width        : 100%;
+  border-bottom: #e5e4e3 1px solid;
+}
+
+/* Left card */
+.left-card {
+  width: calc(100% - 320px);
+}
+
+.product-container {
+  padding-top   : 50px;
+  padding-left  : 40px;
+  padding-right : 40px;
+  padding-bottom: 20px;
+}
+
+.product-item {
+  display       : flex;
+  margin-top    : 16px;
+  padding-bottom: 16px;
+}
+
+.product-item-content {
+  margin-left: 16px;
+}
+
+.product-item--title {
+  font-size  : 18px;
+  font-weight: bold;
+}
+
+.product-item--expiration {
+  color     : #706E6B;
+  font-size : 13px;
+  margin-top: 16px;
+}
+
+.color-active {
+  color: #EB7092;
+}
+
+.product-item__count-container {
+  display   : flex;
+  margin-top: 16px;
+}
+
+.product-item__count {
+  display        : flex;
+  margin-left    : 16px;
+  border         : lightgray 1px solid;
+  padding-top    : 4px;
+  padding-left   : 10px;
+  padding-right  : 10px;
+  padding-bottom : 4px;
+  justify-content: center;
+  align-items    : center;
+  border-radius  : 4px;
+}
+
+.arrow-down {
+  width       : 0;
+  height      : 0;
+  margin-left : 10px;
+  border-left : 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top  : 7px solid #706E6B;
+}
+
+.product-item__promo {
+  display      : flex;
+  align-items  : center;
+  width        : 100%;
+  height       : 42px;
+  margin-top   : 16px;
+  padding      : 0px 10px 0px 10px;
+  font-size    : 13px;
+  background   : rgba(225, 218, 207, 0.31);
+  border-radius: 4px;
+}
+
+.product-item__promo__action {
+  color          : #0070D2;
+  cursor         : pointer;
+  text-decoration: underline;
+}
+
+.donate-container {
+  display: flex;
+}
+
+.donate-item {
+  display: flex;
+  align-items: center;
+  height: 32px;
+  padding-left: 8px;
+  padding-right: 8px;
+  background   : #FFFFFF;
+  border       : 1px solid #C4C4C4;
+  box-sizing   : border-box;
+  border-radius: 4px;
+}
+
+.donate-item--active {
+  color: white;
+  background: #7D7D7D;
+  font-weight: 700;
+}
+
+.donate-item > label {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding-right: 8px;
+  border-right: 1px solid #C4C4C4;
+}
+
+.donate-item > input {
+  margin-left: 8px;
+  border: none;
+}
+
+/* Right card */
+.right-card {
+  width      : 300px;
+  margin-left: 20px;
+}
+
+.order-summary {
+  padding-top   : 30px;
+  padding-left  : 20px;
+  padding-right : 20px;
+  padding-bottom: 30px;
+}
+
+.order-summary--title {
+  font-weight: 700;
+  font-size  : 18px;
+}
+
+.order-summary__item {
+  display        : flex;
+  flex-direction : row;
+  justify-content: space-between;
+  margin-top     : 16px;
+}
+
+.order-summary__item--product {
+  font-size: 13px;
+}
+
+.order-summary__item--subtotal {
+  font-size: 15px;
+}
+
+.order-summary__button-edit {
+  color    : #0070D2;
+  font-size: 15px;
+  cursor   : pointer;
+}
+
+.order-summary__promo-code--title {
+  margin-top: 30px;
+  color     : #0070D2;
+  font-size : 15px;
+  cursor    : pointer;
+}
+
+.order-summary__promo-code {
+  display        : flex;
+  justify-content: space-between;
+  margin-top     : 16px;
+}
+
+.order-summary__promo-code__input {
+  height       : 32px;
+  background   : #FFFFFF;
+  border       : 1px solid #C4C4C4;
+  box-sizing   : border-box;
+  border-radius: 4px;
+}
+
+.order-summary__promo-code__button {
+  display        : flex;
+  align-items    : center;
+  justify-content: center;
+  width          : 78px;
+  height         : 32px;
+  background     : #FFFFFF;
+  border         : 1px solid #0EB58A;
+  box-sizing     : border-box;
+  border-radius  : 4px;
+  font-size      : 15px;
+  color          : #0EB58A;
+  cursor         : pointer;
+}
+
+.order-summary__button {
+  display        : flex;
+  align-items    : center;
+  justify-content: center;
+  background     : #0EB58A;
+  border-radius  : 6px;
+  height         : 54px;
+  color          : #ffffff;
+  font-size      : 18px;
+  margin-top     : 30px;
+  cursor         : pointer;
+}
+
+.order-summary__button--disable {
+  background: rgba(14, 181, 138, 0.5);
+}
+
+/* Checkout 2 */
+.progress-bar-container {
+  width: 100%;
+}
+
+.progress-bar {
+  display        : flex;
+  align-items    : center;
+  justify-content: center;
+  width          : 100%;
+}
+
+.progress-bar__ellipse {
+  display        : flex;
+  align-items    : center;
+  justify-content: center;
+  width          : 21px;
+  height         : 21px;
+
+  background   : #C3C3C3;
+  border-radius: 10px;
+}
+
+.progress-bar__ellipse-in {
+  width        : 17px;
+  height       : 17px;
+  box-sizing   : border-box;
+  border-radius: 10px;
+  border       : 3px solid #FFFFFF;
+}
+
+.progress-bar__ellipse-in--active {
+  background: #0EB58A;
+}
+
+.progress-bar__line {
+  width : calc(50% - 52px);
+  border: 2px solid #C3C3C3;
+}
+
+.progress-bar-title {
+  display        : flex;
+  justify-content: space-between;
+  color          : #727272;
+  font-size      : 14px;
+}
+
+.card1 {
+  margin-top: 20px;
+  padding   : 20px;
+}
+
+.card1__title {
+  font-size: 22px;
+}
+
+.card1__body {
+  display        : flex;
+  align-items    : center;
+  justify-content: space-between;
+  margin-top     : 20px;
+}
+
+.card1__body__img {
+  display        : flex;
+  align-items    : center;
+  justify-content: center;
+  width          : 52px;
+  height         : 52px;
+  background     : rgba(14, 181, 138, 0.11);
+}
+
+.card1__body__content {
+  display        : flex;
+  align-items    : center;
+  justify-content: center;
+}
+
+.card1__body__button {
+  font-size: 15px;
+  color    : #0070D2;
+}
+
+.card2 {
+  padding   : 20px 36px 36px 36px;
+  margin-top: 20px;
+}
+
+.card2__title {
+  font-size  : 18px;
+  font-weight: 700;
+}
+
+.card2__input_container {
+  display: flex;
+}
+
+.card2__input {
+  display      : block;
+  flex         : auto;
+  margin-top   : 10px;
+  padding-left : 8px;
+  padding-right: 8px;
+}
+
+.card2__radio-container {
+  display            : block;
+  position           : relative;
+  padding-left       : 35px;
+  margin-bottom      : 12px;
+  cursor             : pointer;
+  -webkit-user-select: none;
+  -moz-user-select   : none;
+  -ms-user-select    : none;
+  user-select        : none;
+}
+
+.card2__radio-container input {
+  position: absolute;
+  opacity : 0;
+  cursor  : pointer;
+  height  : 0;
+  width   : 0;
+}
+
+.checkmark {
+  position        : absolute;
+  top             : 0;
+  left            : 0;
+  height          : 20px;
+  width           : 20px;
+  border          : 1px solid #C4C4C4;
+  background-color: #ffffff;
+  border-radius   : 50%;
+}
+
+.card2__radio-container:hover input~.checkmark {
+  background-color: #ccc;
+}
+
+.card2__radio-container input:checked~.checkmark {
+  background-color: #FFFFFF;
+}
+
+.checkmark:after {
+  content : "";
+  position: absolute;
+  display : none;
+}
+
+.card2__radio-container input:checked~.checkmark:after {
+  display: block;
+}
+
+.card2__radio-container .checkmark:after {
+  top          : 4px;
+  left         : 4px;
+  width        : 12px;
+  height       : 12px;
+  border-radius: 50%;
+  background   : #0EB58A;
+}

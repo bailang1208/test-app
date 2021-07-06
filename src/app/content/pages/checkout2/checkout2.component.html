@@ -1,0 +1,143 @@
+<div class="top-bar">
+  <img src="assets/img/left-arrow.svg" />
+  <div class="mg-l-10">
+    Back
+  </div>
+</div>
+
+<div class="content">
+  <div class="left-card">
+    <div class="progress-bar-container">
+      <div class="progress-bar">
+        <div class="progress-bar__ellipse">
+          <div class="progress-bar__ellipse-in progress-bar__ellipse-in--active"></div>
+        </div>
+        <div class="progress-bar__line"></div>
+        <div class="progress-bar__ellipse">
+          <div class="progress-bar__ellipse-in"></div>
+        </div>
+        <div class="progress-bar__line"></div>
+        <div class="progress-bar__ellipse">
+          <div class="progress-bar__ellipse-in"></div>
+        </div>
+      </div>
+      <div class="progress-bar-title">
+        <span>Tickets</span>
+        <span>Sessions</span>
+        <span>Payment</span>
+      </div>
+    </div>
+
+    <div class="card card1">
+      <div class="card__top-arrow"><img src="assets/img/top-arrow.svg" /></div>
+      <div class="card1__title">Tickets</div>
+      <div class="card1__body">
+        <div class="card1__body__content">
+          <div class="card1__body__img">
+            <img src="assets/img/icon.svg" />
+          </div>
+          <div class="mg-l-16">
+            <p>In a rush?</p>
+            <p>Register your tickets now or after checking out. Your choice.</p>
+          </div>
+        </div>
+        <div class="card1__body__button">Fill this ourt later</div>
+      </div>
+    </div>
+
+    <div class="card card2">
+      <div class="card__top-arrow"><img src="assets/img/top-arrow.svg" /></div>
+      <div class="card2__title"> Attendee 1 - Free Ticket </div>
+      <div class="card2__input_container mg-t-16">
+        <input class="card__input card__input--warning card__input--height-small card2__input" placeholder="First Name *" />
+        <input class="card__input card__input--warning card__input--height-small card2__input mg-l-16" placeholder="Last Name *" />
+      </div>
+      <input class="card__input card__input--warning card__input--height-small card2__input w100p" placeholder="Email *" />
+      <p class="font-size-15 bold mg-t-20">
+        Would you like to recelve the branded connections and other e-comunlcations from the us?
+      </p>
+      <label class="card2__radio-container mg-t-16">Yes
+        <input type="radio" checked="checked">
+        <span class="checkmark"></span>
+      </label>
+      <label class="card2__radio-container">No
+        <input type="radio">
+        <span class="checkmark"></span>
+      </label>
+    </div>
+
+    <div class="card card2">
+      <div class="card__top-arrow"><img src="assets/img/top-arrow.svg" /></div>
+      <div class="card2__title">Attendee 2 - Alumni VIP Ticket</div>
+      <div class="card2__input_container mg-t-16">
+        <input class="card__input card2__input" placeholder="First Name"/>
+        <input class="card__input card2__input mg-l-16" placeholder="Last Name"/>
+      </div>
+      <input class="card__input card2__input w100p" placeholder="Email"/>
+      <input class="card__input card2__input w100p" placeholder="Job Title"/>
+      <input class="card__input card2__input w100p" placeholder="Company"/>
+      <select class="card__select card__input w100p">
+        <option value="" selected>Country</option>
+        <option value="country 1">Country 1</option>
+        <option value="country 2">Country 2</option>
+        <option value="country 3">Country 3</option>
+        <option value="country 4">Country 4</option>
+        <option value="country 5">Country 5</option>
+      </select>
+    </div>
+
+    <div class="card card2">
+      <div class="card__top-arrow"><img src="assets/img/top-arrow.svg" /></div>
+      <div class="card2__title">Attendee 3 - Alumni VIP Ticket</div>
+      <div class="card2__input_container mg-t-16">
+        <input class="card__input card2__input" placeholder="First Name"/>
+        <input class="card__input card2__input mg-l-16" placeholder="Last Name"/>
+      </div>
+      <input class="card__input card2__input w100p" placeholder="Email"/>
+      <input class="card__input card2__input w100p" placeholder="Job Title"/>
+      <input class="card__input card2__input w100p" placeholder="Company"/>
+      <select class="card__select card__input w100p">
+        <option value="" selected>Country</option>
+        <option value="country 1">Country 1</option>
+        <option value="country 2">Country 2</option>
+        <option value="country 3">Country 3</option>
+        <option value="country 4">Country 4</option>
+        <option value="country 5">Country 5</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="right-card">
+    <div class="card order-summary">
+      <p class="order-summary--title">Order summar</p>
+      <div *ngFor="let item of cartList;" class="order-summary__item order-summary__item--product">
+        <span>{{item.quantity}}x Free Ticket</span>
+        <span>${{item.price}}</span>
+      </div>
+      <div class="order-summary__button-edit mg-t-16" (click)="onClickEdit()">Edit</div>
+      <div class="line mg-t-20"></div>
+      <div class="order-summary__subtotal mg-t-16">
+        Subtotal
+      </div>
+      <div class="order-summary__item order-summary__item--subtotal">
+        <span>Subtotal</span>
+        <span>$7,200.0</span>
+      </div>
+      <div class="order-summary__item order-summary__item--subtotal">
+        <span>Taxes</span>
+        <span>${{business.taxes}}</span>
+      </div>
+      <div class="line mg-t-16"></div>
+      <div class="order-summary__item bold">
+        <span>Total</span>
+        <span>$7289.42</span>
+      </div>
+      <div class="order-summary__promo-code--title" (click)="onClickHavePromocode()">
+        Have a promo code?
+      </div>
+    </div>
+    <div class="order-summary__button order-summary__button--disable">
+      Review Sessions
+    </div>
+  </div>
+</div>
