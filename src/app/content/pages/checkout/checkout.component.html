@@ -53,8 +53,8 @@
     <div class="card order-summary">
       <p class="order-summary--title">Order summar</p>
       <div *ngFor="let item of cartList;" class="order-summary__item order-summary__item--product">
-        <span>{{item.quantity}}x Free Ticket</span>
-        <span>${{item.price}}</span>
+        <span>{{item.quantity}}x {{item.title}}</span>
+        <span>${{formattedPrice(item.price)}}</span>
       </div>
       <div class="line mg-t-20"></div>
       <div class="order-summary__subtotal mg-t-16">
@@ -62,16 +62,16 @@
       </div>
       <div class="order-summary__item order-summary__item--subtotal">
         <span>Subtotal</span>
-        <span>$7,200.0</span>
+        <span>${{formattedPrice(subtotal)}}</span>
       </div>
       <div class="order-summary__item order-summary__item--subtotal">
         <span>Taxes</span>
-        <span>${{business.taxes}}</span>
+        <span>${{formattedPrice(business.taxes)}}</span>
       </div>
       <div class="line mg-t-16"></div>
       <div class="order-summary__item bold">
         <span>Total</span>
-        <span>$7289.42</span>
+        <span>${{formattedPrice(total)}}</span>
       </div>
       <div class="order-summary__promo-code--title" (click)="onClickHavePromoCode()">
         Have a promo code?

@@ -20,14 +20,14 @@ const initProductList = [
   },
   {
     img: null,
-    title: 'Alumni Base Ticket',
+    title: 'Alumni VIP Ticket',
     description: 'This livestream will broadcast via a private YouTube link that will be sent to ticket purchasers an hour prior to showtime',
     expiration: 5,
     expiration_active: false,
-    price: 95.99,
-    quantity: 0,
-    promo_message: '1 Ticket Added to cart. Want to join the waitlist for 2 tickets?',
-    promo_action: 'Join Waitlist',
+    price: 3500,
+    quantity: 2,
+    promo_message: '2 Tickets Waitlisted.',
+    promo_action: 'Cancel',
     isDonate: false
   },
   {
@@ -83,6 +83,9 @@ export class CheckoutComponent implements OnInit {
 
   havePromoCode: boolean = false;
 
+  subtotal: number = 0;
+  total: number = 0;
+
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute
@@ -90,28 +93,73 @@ export class CheckoutComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe(params => {
-      if(params.havePromoCode) {
+      if (params.havePromoCode) {
         this.havePromoCode = params.havePromoCode == "true";
+        if(this.havePromoCode == true) {
+          this.productList = initProductList;
+          this.cartList = initCartList;
+
+          this.updateProductList();
+
+          this.calculatePrice();
+        }
       }
     });
+
+    this.calculatePrice();
+  }
+
+  formattedPrice(value: number) {
+    let v = value.toFixed(2);
+    v = v.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+    return v;
+  }
+
+  calculatePrice() {
+    for (let i = 0; i < this.cartList.length; i++) {
+      let obj = this.cartList[i];
+      this.subtotal = this.subtotal + parseInt(obj.quantity) * parseFloat(obj.price);
+    }
+
+    this.total = this.subtotal + this.business.taxes;
+  }
+
+  updateProductList() {
+    this.productList.splice(1, 0, {
+      img: null,
+      title: 'Alumni Base Ticket',
+      description: 'This livestream will broadcast via a private YouTube link that will be sent to ticket purchasers an hour prior to showtime',
+      expiration: 5,
+      expiration_active: false,
+      price: 95.99,
+      quantity: 3,
+      promo_message: '1 Ticket Added to cart. Want to join the waitlist for 2 tickets?',
+      promo_action: 'Join Waitlist',
+      isDonate: false
+    });
+
+    this.cartList.splice(2, 0, {
+      title: 'Alumni Base Ticket',
+      quantity: 1,
+      price: 95.99
+    })
+
+    this.cartList.splice(3, 0, {
+      title: 'Alumni Base Ticket',
+      quantity: 2,
+      price: 95.99
+    })
   }
 
   onClickHavePromoCode() {
     if (this.havePromoCode == false) {
       console.log('===== on click have promo code =====');
-      this.productList.splice(2, 0, {
-        img: null,
-        title: 'Alumni VIP Ticket',
-        description: 'This livestream will broadcast via a private YouTube link that will be sent to ticket purchasers an hour prior to showtime',
-        expiration: 5,
-        expiration_active: false,
-        price: 3500,
-        quantity: 0,
-        promo_message: '2 Tickets Waitlisted.',
-        promo_action: 'Cancel',
-        isDonate: false
-      });
+
+      this.updateProductList();
       this.havePromoCode = true;
+
+      this.calculatePrice();
     }
   }
 
