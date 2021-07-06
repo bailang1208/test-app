@@ -122,5 +122,4 @@ export class CheckoutComponent implements OnInit {
       this.router.navigateByUrl('checkout');
     }
   }
-
 }
