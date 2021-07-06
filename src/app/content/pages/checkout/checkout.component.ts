@@ -96,12 +96,11 @@ export class CheckoutComponent implements OnInit {
       if (params.havePromoCode) {
         this.havePromoCode = params.havePromoCode == "true";
         if(this.havePromoCode == true) {
-          this.productList = initProductList;
-          this.cartList = initCartList;
+          if(this.productList.length < 5) {
+            this.updateProductList();
 
-          this.updateProductList();
-
-          this.calculatePrice();
+            this.calculatePrice();
+          }
         }
       }
     });
